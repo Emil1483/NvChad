@@ -28,4 +28,10 @@ M.dap_python = {
   }
 }
 
+M.python = {
+  n = {
+    ["<leader>pp"] = {"<cmd> update<bar>:term python3 %<CR>", "Run current python file"}
+  }
+}
+
 return M
