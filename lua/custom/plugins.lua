@@ -38,7 +38,7 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python"},
+    ft = {"python", "go"},
     opts = function ()
       return require "custom.configs.null-ls"
     end
@@ -52,6 +52,7 @@ local plugins = {
         "mypy",
         "ruff",
         "pyright",
+        "gopls",
       },
     },
   },
@@ -65,6 +66,16 @@ local plugins = {
   {
     "ThePrimeagen/vim-be-good",
     lazy = false
+  },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+    end,
+    build = function ()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
   },
 }
 
